@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WinFormsAppMaster.Models;
 
-namespace WinFormsAppMaster.Interface
+namespace WinFormsAppMaster.Interfaces
 {
     public interface IDatabase<T>
     {
