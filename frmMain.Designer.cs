@@ -28,9 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             nightForm1 = new ReaLTaiizor.Forms.NightForm();
             foreverTabPage1 = new ReaLTaiizor.Controls.ForeverTabPage();
             tabPage1 = new TabPage();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            pieFemaleChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            pieTotalChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            pieMalePopulation = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPage2 = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -60,6 +73,11 @@
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             nightForm1.SuspendLayout();
             foreverTabPage1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pieFemaleChart).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pieTotalChart).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pieMalePopulation).BeginInit();
             tabPage2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -115,12 +133,82 @@
             // tabPage1
             // 
             tabPage1.BackColor = Color.FromArgb(60, 70, 73);
+            tabPage1.Controls.Add(tableLayoutPanel4);
             tabPage1.Location = new Point(4, 44);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
+            tabPage1.Padding = new Padding(10);
             tabPage1.Size = new Size(912, 550);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Dashboard";
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 3;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.Controls.Add(pieTotalChart, 0, 0);
+            tableLayoutPanel4.Controls.Add(pieMalePopulation, 1, 0);
+            tableLayoutPanel4.Controls.Add(pieFemaleChart, 2, 0);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(10, 10);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 2;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.Size = new Size(892, 530);
+            tableLayoutPanel4.TabIndex = 0;
+            // 
+            // pieFemaleChart
+            // 
+            chartArea3.Name = "ChartArea1";
+            pieFemaleChart.ChartAreas.Add(chartArea3);
+            pieFemaleChart.Dock = DockStyle.Fill;
+            legend3.Name = "Legend1";
+            pieFemaleChart.Legends.Add(legend3);
+            pieFemaleChart.Location = new Point(597, 3);
+            pieFemaleChart.Name = "pieFemaleChart";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            pieFemaleChart.Series.Add(series3);
+            pieFemaleChart.Size = new Size(292, 259);
+            pieFemaleChart.TabIndex = 5;
+            pieFemaleChart.Text = "chart6";
+            // 
+            // pieTotalChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            pieTotalChart.ChartAreas.Add(chartArea1);
+            pieTotalChart.Dock = DockStyle.Fill;
+            legend1.Name = "Legend1";
+            pieTotalChart.Legends.Add(legend1);
+            pieTotalChart.Location = new Point(3, 3);
+            pieTotalChart.Name = "pieTotalChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            pieTotalChart.Series.Add(series1);
+            pieTotalChart.Size = new Size(291, 259);
+            pieTotalChart.TabIndex = 6;
+            pieTotalChart.Text = "chart1";
+            // 
+            // pieMalePopulation
+            // 
+            chartArea2.Name = "ChartArea1";
+            pieMalePopulation.ChartAreas.Add(chartArea2);
+            pieMalePopulation.Dock = DockStyle.Fill;
+            legend2.Name = "Legend1";
+            pieMalePopulation.Legends.Add(legend2);
+            pieMalePopulation.Location = new Point(300, 3);
+            pieMalePopulation.Name = "pieMalePopulation";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            pieMalePopulation.Series.Add(series2);
+            pieMalePopulation.Size = new Size(291, 259);
+            pieMalePopulation.TabIndex = 7;
+            pieMalePopulation.Text = "chart1";
             // 
             // tabPage2
             // 
@@ -503,6 +591,11 @@
             TransparencyKey = Color.Fuchsia;
             nightForm1.ResumeLayout(false);
             foreverTabPage1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pieFemaleChart).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pieTotalChart).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pieMalePopulation).EndInit();
             tabPage2.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
@@ -550,5 +643,9 @@
         private ReaLTaiizor.Controls.CrownNumeric nbxId;
         private DataGridView dgvDataTable;
         private ReaLTaiizor.Controls.NightTextBox tbxAdministrativeAgency;
+        private TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pieFemaleChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pieTotalChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pieMalePopulation;
     }
 }

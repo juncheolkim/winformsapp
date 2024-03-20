@@ -1,3 +1,4 @@
+using System.Windows.Forms.DataVisualization.Charting;
 using WinFormsAppMaster.Interfaces;
 using WinFormsAppMaster.Models;
 
@@ -11,6 +12,55 @@ namespace WinFormsAppMaster
             InitializeComponent();
 
             _iDatabase = idatabase;
+
+            ShowTotalPopulationPieCharts();
+            ShowMalePopulationPieCharts();
+            ShowFemalePopulationPieCharts();
+        }
+
+        private void ShowTotalPopulationPieCharts()
+        {
+            var data = _iDatabase.Get();
+
+            // LINQ ½Ä
+            List<string?> categories = data.OrderByDescending(c => c.TotalPopulation).Take(5).Select(c => c.AdministrativeAgency).ToList();
+            List<int?> values = data.OrderByDescending(c => c.TotalPopulation).Take(5).Select(c => c.TotalPopulation).ToList();
+
+            pieTotalChart.Series["Series1"].Points.DataBindXY(categories, values);
+            pieTotalChart.Series["Series1"].ChartType = SeriesChartType.Pie;
+
+            pieTotalChart.Series["Series1"]["PieLabelStyle"] = "Outside";
+            pieTotalChart.Series["Series1"]["PieLineColor"] = "Black";
+        }
+
+        private void ShowMalePopulationPieCharts()
+        {
+            var data = _iDatabase.Get();
+
+            // LINQ ½Ä
+            List<string?> categories = data.OrderByDescending(c => c.MalePopulation).Take(5).Select(c => c.AdministrativeAgency).ToList();
+            List<int?> values = data.OrderByDescending(c => c.MalePopulation).Take(5).Select(c => c.MalePopulation).ToList();
+
+            pieMalePopulation.Series["Series1"].Points.DataBindXY(categories, values);
+            pieMalePopulation.Series["Series1"].ChartType = SeriesChartType.Pie;
+
+            pieMalePopulation.Series["Series1"]["PieLabelStyle"] = "Outside";
+            pieMalePopulation.Series["Series1"]["PieLineColor"] = "Black";
+        }
+
+        private void ShowFemalePopulationPieCharts()
+        {
+            var data = _iDatabase.Get();
+
+            // LINQ ½Ä
+            List<string?> categories = data.OrderByDescending(c => c.FemalePopulation).Take(5).Select(c => c.AdministrativeAgency).ToList();
+            List<int?> values = data.OrderByDescending(c => c.FemalePopulation).Take(5).Select(c => c.FemalePopulation).ToList();
+
+            pieFemaleChart.Series["Series1"].Points.DataBindXY(categories, values);
+            pieFemaleChart.Series["Series1"].ChartType = SeriesChartType.Pie;
+
+            pieFemaleChart.Series["Series1"]["PieLabelStyle"] = "Outside";
+            pieFemaleChart.Series["Series1"]["PieLineColor"] = "Black";
         }
 
         private void btnReadAll_Click(object sender, EventArgs e)
